@@ -40,6 +40,14 @@ var argv = require("yargs")
       boolean: true,
       describe: "include speech text"
     },
+    speechrules: {
+      default: "mathspeak",
+      describe: "ruleset to use for speech text (chromevox or mathspeak)"
+    },
+    speechstyle: {
+      default: "default",
+      describe: "style to use for speech text (default, brief, sbrief)"
+    },
     linebreaks: {
       boolean: true,
       describe: "perform automatic line-breaking"
@@ -79,32 +87,37 @@ var argv = require("yargs")
     width: {
       default: 100,
       describe: "width of container in ex"
+    },
+    extensions: {
+      default: "",
+      describe: "extra MathJax extensions e.g. 'Safe,TeX/noUndefined'"
     }
   })
   .argv;
 
 argv.format = argv.format.split(/ *, */);
 if (argv.font === "STIX") argv.font = "STIX-Web";
-mjAPI.config({MathJax: {SVG: {font: argv.font}}});
+mjAPI.config({MathJax: {SVG: {font: argv.font}}, extensions: argv.extensions});
 mjAPI.start();
 
 //
 //  Process an HTML file:
 //
 function processHTML(html,callback) {
-  var document = jsdom(html,null,{features:{FetchExternalResources: false}});
+  var document = jsdom(html,{features:{FetchExternalResources: false}});
   var xmlns = getXMLNS(document);
   mjAPI.typeset({
     html: document.body.innerHTML,
-    renderer: "SVG",
+    renderer: (argv.img == "" ? "SVG" : "IMG"),
     inputs: argv.format,
     equationNumbers: argv.eqno,
     singleDollars: !argv.nodollars,
     useFontCache: !argv.nofontcache,
     useGlobalCache: !argv.localcache,
-    svgPreview: argv.preview,
-    imgSVG: (argv.img !== ""),
+    addPreview: argv.preview,
     speakText: argv.speech,
+    speakRuleset: argv.speechrules.replace(/^chromevox$/i,"default"),
+    speakStyle: argv.speechstyle,
     ex: argv.ex, width: argv.width,
     linebreaks: argv.linebreaks,
     xmlns:xmlns

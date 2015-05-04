@@ -2,10 +2,10 @@
 
 /*************************************************************************
  *
- *  am2png
+ *  mml2mml
  *
- *  Uses MathJax and batik to convert an AsciiMath string to
- *  a PNG image file.
+ *  Uses MathJax to convert a MathML string to a normalized MathML
+ *  string (can include speech text).
  *
  * ----------------------------------------------------------------------
  *
@@ -28,26 +28,18 @@ var mjAPI = require("../lib/mj-single.js");
 
 var argv = require("yargs")
   .demand(1).strict()
-  .usage("Usage: am2png [options] 'math' > file.png",{
-    linebreaks: {
+  .usage("Usage: mml2mml [options] 'math' > file.xml",{
+    speech: {
       boolean: true,
-      describe: "perform automatic line-breaking"
+      describe: "include speech text"
     },
-    dpi: {
-      default: 0,
-      describe: "dpi for image (0 = calculate automatically)"
+    speechrules: {
+      default: "mathspeak",
+      describe: "ruleset to use for speech text (chromevox or mathspeak)"
     },
-    font: {
-      default: "TeX",
-      describe: "web font to use"
-    },
-    ex: {
-      default: 6,
-      describe: "ex-size in pixels"
-    },
-    width: {
-      default: 100,
-      describe: "width of container in ex"
+    speechstyle: {
+      default: "default",
+      describe: "style to use for speech text (default, brief, sbrief)"
     },
     extensions: {
       default: "",
@@ -56,18 +48,15 @@ var argv = require("yargs")
   })
   .argv;
 
-if (argv.font === "STIX") argv.font = "STIX-Web";
-mjAPI.config({MathJax: {SVG: {font: argv.font}}, extensions: argv.extensions});
+mjAPI.config({extensions: argv.extensions});
 mjAPI.start();
-
-if (argv.dpi === 0) {argv.dpi = argv.ex * 16} // pixels properly sized
 
 mjAPI.typeset({
   math: argv._[0],
-  format: "AsciiMath",
-  png:true, dpi:argv.dpi,
-  ex: argv.ex, width: argv.width,
-  linebreaks: argv.linebreaks
+  format: "MathML", mml:true,
+  speakText: argv.speech,
+  speakRuleset: argv.speechrules.replace(/^chromevox$/i,"default"),
+  speakStyle: argv.speechstyle
 }, function (data) {
-  if (!data.errors) {process.stdout.write(new Buffer(data.png.slice(22),'base64'))}
+  if (!data.errors) {console.log(data.mml)}
 });
