@@ -21,7 +21,7 @@
         "jsdom": "3.1.1",
         "speech-rule-engine": "*",
         "yargs": "*",
-        "MathJax": "git+https://github.com/wikimedia/MathJax#mathoid-0-2-8"
+        "MathJax": "git+https://github.com/wikimedia/MathJax"
     },
     "main": "./lib/mj-page.js"
 }
