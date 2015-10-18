@@ -1,27 +1,35 @@
 {
-    "name": "MathJax-node",
-    "version": "0.3.0",
-    "description": "API's for calling MathJax from node.js",
-    "keywords": ["MathJax","math","svg","MathML","TeX","AsciiMath"],
-    "maintainers": [
-        "MathJax Consortium <info@mathjax.org> (http://www.mathjax.org)"
-    ],
-    "bugs": {
-        "url": "http://github.com/mathjax/MathJax-node/issues"
-    },
-    "license": {
-        "type": "Apache",
-        "url": "http://github.com/mathjax/MathJax-node/blob/master/LICENSE"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/mathjax/MathJax-node.git"
-    },
-    "dependencies": {
-        "jsdom": "3.1.1",
-        "speech-rule-engine": "*",
-        "yargs": "*",
-        "MathJax": "git+https://github.com/wikimedia/MathJax"
-    },
-    "main": "./lib/mj-page.js"
+  "name": "MathJax-node",
+  "version": "0.3.0",
+  "description": "API's for calling MathJax from node.js",
+  "keywords": [
+    "MathJax",
+    "math",
+    "svg",
+    "MathML",
+    "TeX",
+    "AsciiMath"
+  ],
+  "maintainers": [
+    "MathJax Consortium <info@mathjax.org> (http://www.mathjax.org)"
+  ],
+  "bugs": {
+    "url": "http://github.com/mathjax/MathJax-node/issues"
+  },
+  "license": {
+    "type": "Apache",
+    "url": "http://github.com/mathjax/MathJax-node/blob/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mathjax/MathJax-node.git"
+  },
+  "dependencies": {
+    "librsvg": "0.6.1",
+    "jsdom": "3.1.1",
+    "speech-rule-engine": "*",
+    "yargs": "*",
+    "MathJax": "git+https://github.com/wikimedia/MathJax"
+  },
+  "main": "./lib/mj-page.js"
 }
