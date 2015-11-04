@@ -12,7 +12,6 @@ tape('basic test: check MathJax core', function(t) {
     format: "inline-TeX",
     mml: true
   }, function(data) {
-      console.log(data.mml);
     t.ok(data.mml.indexOf("scriptlevel=\"0\"")>0, 'MathJax renders smallmatrix.');
   });
 });
