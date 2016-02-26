@@ -1,6 +1,6 @@
 {
   "name": "mathoid-mathjax-node",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "API's for calling MathJax from node.js",
   "keywords": [
     "MathJax",
@@ -25,7 +25,8 @@
     "jsdom": "^6.0.0",
     "speech-rule-engine": "*",
     "yargs": "^3.0.0",
-    "mathoid-mathjax": "2.5.3"
+    "mathoid-mathjax": "2.5.3",
+    "librsvg": "^0.6.1"
   },
   "scripts": {
     "test": "tape test/*.js"

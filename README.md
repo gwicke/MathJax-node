@@ -19,9 +19,10 @@ Use
 to install mathjax-node and its dependencies.
 
 These API's can produce PNG images, but that requires the
-[Batik](http://xmlgraphics.apache.org/batik/download.html) library.  It 
-should be installed in the `batik` directory.  See the README file in that 
-directory for more details.
+[librsvg](https://www.npmjs.com/package/librsvg) library.
+See the link for installation. Tested with
+* Windows 8.1
+* Ubuntu 14 LTS
 
 # Getting started
 
