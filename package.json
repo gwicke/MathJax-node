@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "jsdom": "^6.0.0",
-    "speech-rule-engine": "*",
+    "speech-rule-engine": "0.9.2",
     "yargs": "^3.0.0",
     "mathoid-mathjax": "2.5.3",
     "librsvg": "^0.6.1"
