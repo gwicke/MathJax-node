@@ -1,12 +1,11 @@
 {
-  "name": "mathjax-node",
+  "name": "mathoid-mathjax-node",
   "version": "1.0.0",
   "description": "API's for calling MathJax from node.js",
   "keywords": [
     "MathJax",
     "math",
     "svg",
-    "HTML",
     "MathML",
     "TeX",
     "AsciiMath"
@@ -23,8 +22,8 @@
     "url": "git://github.com/mathjax/MathJax-node.git"
   },
   "dependencies": {
-    "jsdom": "7.0 - 9.8",
-    "mathjax": "*"
+    "jsdom": "^6.0.0",
+    "mathoid-mathjax": "git+https://github.com/physikerwelt/mathjax.git#mathoid-0-7-0 "
   },
   "scripts": {
     "test": "tape test/*.js"
