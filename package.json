@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "jsdom": "^6.0.0",
-    "mathoid-mathjax": "git+https://github.com/physikerwelt/mathjax.git#mathoid-0-7-0 "
+    "mathoid-mathjax": "git+https://github.com/physikerwelt/mathjax.git#up271"
   },
   "scripts": {
     "test": "tape test/*.js"
