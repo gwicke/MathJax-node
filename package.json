@@ -1,6 +1,6 @@
 {
   "name": "mathoid-mathjax-node",
-  "version": "1.0.0",
+  "version": "0.7.0",
   "description": "API's for calling MathJax from node.js",
   "keywords": [
     "MathJax",
