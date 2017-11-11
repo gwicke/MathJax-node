@@ -26,7 +26,7 @@
     "mathoid-mathjax": "^2.7.1"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape \"test/*.js\""
   },
   "main": "./lib/main.js",
   "devDependencies": {
