@@ -1,10 +1,10 @@
 var tape = require('tape');
 var mjAPI = require("../lib/main.js");
 
-tape('basic test: check MathJax core', function(t) {
+tape('mediawiki-texvc test: check MathJax mhchem', function(t) {
     t.plan(1);
 
-    var tex = "\\underbrace {a \\choose b}";
+    var tex = '\\ce{H2O}';
     mjAPI.start();
 
     mjAPI.typeset({
@@ -12,6 +12,6 @@ tape('basic test: check MathJax core', function(t) {
         format: "inline-TeX",
         mml: true
     }, function(data) {
-        t.ok(data.mml.indexOf("mfrac")>0, 'MathJax does not crash on underbrace');
+        t.ok(data.mml.indexOf("msubsup")>0, 'MathJax uses subscript for chemistry.');
     });
 });

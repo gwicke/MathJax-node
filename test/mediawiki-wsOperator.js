@@ -1,10 +1,10 @@
 var tape = require('tape');
 var mjAPI = require("../lib/main.js");
 
-tape('basic test: check MathJax core', function(t) {
+tape('mediawiki-texvc test: check MathJax core', function(t) {
     t.plan(1);
 
-    var tex = "\\underbrace {a \\choose b}";
+    var tex = '\\operatorname{A\\ }';
     mjAPI.start();
 
     mjAPI.typeset({
@@ -12,6 +12,6 @@ tape('basic test: check MathJax core', function(t) {
         format: "inline-TeX",
         mml: true
     }, function(data) {
-        t.ok(data.mml.indexOf("mfrac")>0, 'MathJax does not crash on underbrace');
+        t.equal(data.mml.match(/<mtext>&#xA0;<\/mtext>/g).length,1,'Spaces after operators');
     });
 });

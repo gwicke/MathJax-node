@@ -1,7 +1,7 @@
 var tape = require('tape');
 var mjAPI = require("../lib/main.js");
 
-tape('basic test: check MathJax core', function(t) {
+tape('mediawiki-texvc  test: check MathJax core', function(t) {
     t.plan(1);
 
     var tex = '\\underline{\\mathbb{Z}}'; // Other possible test candidates \\bull, \\vline
