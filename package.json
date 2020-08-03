@@ -1,6 +1,6 @@
 {
   "name": "mathoid-mathjax-node",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "API's for calling MathJax from node.js",
   "keywords": [
     "MathJax",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "jsdom": "^6.0.0",
-    "mathoid-mathjax": "^2.7.1"
+    "mathoid-mathjax": "^2.7.2"
   },
   "scripts": {
     "test": "tape \"test/*.js\""
